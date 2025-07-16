@@ -75,7 +75,7 @@
       top: 0;
       left: -300px;
       height: 100vh;
-      width: 200px;
+      width: 250px;
       background-color: var(--accent-color);
       padding-top: 4rem;
       display: flex;
@@ -145,6 +145,8 @@
       padding: 1.5rem;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       transition: transform 0.2s ease-in-out;
+      display: flex;
+      flex-direction: column;
       align-items: center;
     }
 
@@ -165,9 +167,14 @@
       color: white;
       padding: 0.5rem 1rem;
       border-radius: 5px;
+      width: fit-content;
     }
 
     #tentang h2 {
+      text-align: center;
+    }
+
+    #tentang p {
       text-align: center;
     }
 
@@ -180,21 +187,21 @@
     }
   </style>
 </head>
-<body>
+<body onclick="closeMenuOutside(event)">
   <header>
     <div class="container">
       <div class="topbar">
         <div class="menu-left">
-          <button class="menu-toggle" onclick="toggleMenu()" id="burger">☰</button>
+          <button class="menu-toggle" onclick="toggleMenu(event)" id="burger">☰</button>
           <div class="logo">
             <img src="assets/logo.png" alt="Logo ITERA">
             <h1>ITERA Bermatika</h1>
           </div>
         </div>
         <nav id="nav-menu">
-          <a href="#">Beranda</a>
-          <a href="#buku">Daftar Buku</a>
-          <a href="#tentang">Tentang</a>
+          <a href="#" onclick="toggleMenu()">Beranda</a>
+          <a href="#buku" onclick="toggleMenu()">Daftar Buku</a>
+          <a href="#tentang" onclick="toggleMenu()">Tentang</a>
         </nav>
       </div>
     </div>
@@ -243,16 +250,11 @@
         <p>Vektor, matriks, determinan, dan sistem linear.</p>
         <a href="#">Segera Hadir</a>
       </div>
-      <div class="book-card">
-        <h2>Struktur Aljabar</h2>
-        <p>Grup, ring, dan sifat-sifat yang berkaitan.</p>
-        <a href="#">Segera Hadir</a>
-      </div>
     </div>
 
     <section id="tentang" style="margin-top:3rem;">
       <h2>Tentang ITERA Bermatika</h2>
-      <p style="text-align:center;">Inisiatif kolaboratif dari dosen dan mahasiswa Matematika ITERA untuk mengembangkan dan menyebarkan buku-buku terbuka berkualitas.</p>
+      <p>Inisiatif kolaboratif dari dosen dan mahasiswa Matematika ITERA untuk mengembangkan dan menyebarkan buku-buku terbuka berkualitas.</p>
     </section>
   </main>
 
@@ -261,11 +263,23 @@
   </footer>
 
   <script>
-    function toggleMenu() {
+    function toggleMenu(event) {
       const nav = document.getElementById('nav-menu');
       const burger = document.getElementById('burger');
       nav.classList.toggle('show');
       burger.textContent = nav.classList.contains('show') ? '✕' : '☰';
+      if (event) event.stopPropagation();
+    }
+
+    function closeMenuOutside(event) {
+      const nav = document.getElementById('nav-menu');
+      const burger = document.getElementById('burger');
+      if (!nav.contains(event.target) && !burger.contains(event.target)) {
+        if (nav.classList.contains('show')) {
+          nav.classList.remove('show');
+          burger.textContent = '☰';
+        }
+      }
     }
   </script>
 </body>
