@@ -28,6 +28,16 @@
       flex-wrap: wrap;
     }
 
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo img {
+      height: 48px;
+    }
+
     header h1 {
       margin: 0;
       font-size: 1.5rem;
@@ -112,7 +122,10 @@
 </head>
 <body>
   <header>
-    <h1>ITERA Bermatika</h1>
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo">
+      <h1>ITERA Bermatika</h1>
+    </div>
     <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
     <nav id="nav-menu">
       <a href="#">Beranda</a>
@@ -137,6 +150,31 @@
       <div class="book-card">
         <h2>Matematika Diskrit</h2>
         <p>Logika, himpunan, graf, dan lainnya.</p>
+        <a href="#">Segera Hadir</a>
+      </div>
+      <div class="book-card">
+        <h2>Statistika Dasar</h2>
+        <p>Pengantar statistika deskriptif dan inferensial.</p>
+        <a href="#">Segera Hadir</a>
+      </div>
+      <div class="book-card">
+        <h2>Teori Bilangan</h2>
+        <p>Bilangan prima, kongruensi, dan fungsi aritmetika.</p>
+        <a href="#">Segera Hadir</a>
+      </div>
+      <div class="book-card">
+        <h2>Teori Graf</h2>
+        <p>Struktur graf, lintasan, dan algoritma dasar graf.</p>
+        <a href="#">Segera Hadir</a>
+      </div>
+      <div class="book-card">
+        <h2>Persamaan Diferensial</h2>
+        <p>Persamaan diferensial orde satu dan dua.</p>
+        <a href="#">Segera Hadir</a>
+      </div>
+      <div class="book-card">
+        <h2>Aljabar Linear</h2>
+        <p>Vektor, matriks, determinan, dan sistem linear.</p>
         <a href="#">Segera Hadir</a>
       </div>
     </div>
