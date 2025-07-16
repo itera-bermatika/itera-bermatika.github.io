@@ -29,23 +29,14 @@
     }
 
     .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
       padding: 1rem 1.5rem;
-    }
-
-    .menu-left {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
     }
 
     .menu-toggle {
       font-size: 1.5rem;
       cursor: pointer;
       transition: transform 0.3s ease-in-out;
+      display: inline-block;
     }
 
     .menu-toggle:hover {
@@ -100,7 +91,13 @@
 
     @media (min-width: 769px) {
       .topbar {
-        flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .menu-toggle {
+        display: none;
       }
 
       nav {
@@ -110,16 +107,12 @@
         flex-direction: row;
         justify-content: flex-end;
         gap: 1.5rem;
-        padding: 0.5rem 1.5rem;
         background-color: var(--primary-color);
+        padding: 0;
       }
 
       nav a {
         margin: 0;
-      }
-
-      .menu-toggle {
-        display: none;
       }
     }
 
@@ -174,18 +167,16 @@
 <body>
   <header>
     <div class="topbar">
-      <div class="menu-left">
-        <span class="menu-toggle" onclick="toggleMenu()">☰</span>
-        <div class="logo">
-          <img src="assets/logo.png" alt="Logo">
-          <h1>ITERA Bermatika</h1>
-        </div>
-      </div>
+      <span class="menu-toggle" onclick="toggleMenu()">☰</span>
       <nav id="nav-menu">
         <a href="#">Beranda</a>
         <a href="#buku">Daftar Buku</a>
         <a href="#tentang">Tentang</a>
       </nav>
+      <div class="logo">
+        <img src="assets/logo.png" alt="Logo ITERA">
+        <h1>ITERA Bermatika</h1>
+      </div>
     </div>
   </header>
 
