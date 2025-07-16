@@ -18,42 +18,57 @@
       color: var(--text-color);
     }
     header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       background-color: var(--primary-color);
       color: white;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
+      transition: background-color 0.4s ease-in-out;
     }
     .topbar {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 1rem;
       padding: 1rem 1.5rem;
     }
     .menu-toggle {
       font-size: 1.5rem;
       cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+    .menu-toggle:hover {
+      transform: scale(1.2);
     }
     nav {
-      display: flex;
-      flex-direction: column;
+      max-height: 0;
+      overflow: hidden;
       background-color: var(--accent-color);
-      padding: 0.5rem 1.5rem;
-      transition: all 0.3s ease-in-out;
+      padding: 0 1.5rem;
+      transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
     }
     nav a {
+      display: block;
       color: white;
       text-decoration: none;
       font-weight: 500;
-      margin: 0.3rem 0;
+      margin: 0.75rem 0;
+      transition: color 0.2s;
     }
-    nav.hidden {
-      display: none;
+    nav a:hover {
+      color: #fff0cc;
+    }
+    nav.show {
+      max-height: 200px;
+      padding: 0.5rem 1.5rem;
     }
     .logo {
       display: flex;
       align-items: center;
       gap: 1rem;
+      transition: transform 0.3s ease-in-out;
+    }
+    .logo:hover {
+      transform: scale(1.05);
     }
     .logo img {
       height: 48px;
@@ -64,15 +79,16 @@
     }
     @media (min-width: 769px) {
       nav {
+        max-height: none;
+        overflow: visible;
+        display: flex;
         flex-direction: row;
         justify-content: flex-start;
         gap: 1.5rem;
+        padding: 0.5rem 1.5rem;
       }
       .menu-toggle {
         display: none;
-      }
-      nav.hidden {
-        display: flex;
       }
     }
     main {
@@ -122,11 +138,11 @@
     <div class="topbar">
       <span class="menu-toggle" onclick="toggleMenu()">☰</span>
       <div class="logo">
-        <img src="assets/logo.png" alt="Logo">
+        <img src="assets/LogoITERA.png" alt="Logo ITERA">
         <h1>ITERA Bermatika</h1>
       </div>
     </div>
-    <nav id="nav-menu" class="hidden">
+    <nav id="nav-menu">
       <a href="#">Beranda</a>
       <a href="#buku">Daftar Buku</a>
       <a href="#tentang">Tentang</a>
@@ -187,7 +203,7 @@
   <script>
     function toggleMenu() {
       const nav = document.getElementById('nav-menu');
-      nav.classList.toggle('hidden');
+      nav.classList.toggle('show');
     }
   </script>
 </body>
