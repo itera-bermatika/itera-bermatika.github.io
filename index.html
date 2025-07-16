@@ -6,101 +6,99 @@
   <title>ITERA Bermatika</title>
   <style>
     :root {
-      --primary-color: #007acc;
+      --primary-color: #006699;
+      --accent-color: #f39c12;
       --text-color: #333;
-      --bg-color: #f9f9f9;
+      --bg-color: #fdfdfd;
     }
-
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
     }
-
     header {
       background-color: var(--primary-color);
       color: white;
-      padding: 1rem 2rem;
+      padding: 0;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      flex-direction: column;
     }
-
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+    .menu-toggle {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    nav {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--accent-color);
+      padding: 0.5rem 1.5rem;
+      transition: all 0.3s ease-in-out;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      margin: 0.3rem 0;
+    }
+    nav.hidden {
+      display: none;
+    }
     .logo {
       display: flex;
       align-items: center;
       gap: 1rem;
     }
-
     .logo img {
       height: 48px;
     }
-
     header h1 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
-
-    nav {
-      display: flex;
-      gap: 1rem;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
+    @media (min-width: 769px) {
       nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: var(--primary-color);
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1.5rem;
       }
-
-      nav.show {
+      .menu-toggle {
+        display: none;
+      }
+      nav.hidden {
         display: flex;
       }
-
-      .menu-toggle {
-        display: block;
-      }
     }
-
     main {
       padding: 2rem;
       text-align: center;
     }
-
     .book-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
       margin-top: 2rem;
     }
-
     .book-card {
       background: white;
       border-radius: 10px;
       padding: 1.5rem;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease-in-out;
     }
-
+    .book-card:hover {
+      transform: translateY(-5px);
+    }
     .book-card h2 {
       margin-top: 0;
       color: var(--primary-color);
     }
-
     .book-card a {
       display: inline-block;
       margin-top: 1rem;
@@ -110,7 +108,6 @@
       padding: 0.5rem 1rem;
       border-radius: 5px;
     }
-
     footer {
       text-align: center;
       padding: 1rem;
@@ -122,18 +119,19 @@
 </head>
 <body>
   <header>
-    <div class="logo">
-      <img src="assets/logo.png" alt="Logo">
-      <h1>ITERA Bermatika</h1>
+    <div class="topbar">
+      <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+      <div class="logo">
+        <img src="assets/logo.png" alt="Logo">
+        <h1>ITERA Bermatika</h1>
+      </div>
     </div>
-    <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
-    <nav id="nav-menu">
+    <nav id="nav-menu" class="hidden">
       <a href="#">Beranda</a>
       <a href="#buku">Daftar Buku</a>
       <a href="#tentang">Tentang</a>
     </nav>
   </header>
-
   <main>
     <h2 id="buku">Daftar Buku</h2>
     <div class="book-grid">
@@ -178,21 +176,18 @@
         <a href="#">Segera Hadir</a>
       </div>
     </div>
-
     <section id="tentang" style="margin-top:3rem;">
       <h2>Tentang ITERA Bermatika</h2>
       <p>Inisiatif kolaboratif dari dosen dan mahasiswa Matematika ITERA untuk mengembangkan dan menyebarkan buku-buku terbuka berkualitas.</p>
     </section>
   </main>
-
   <footer>
     &copy; 2025 ITERA Bermatika. Dibuat dengan ❤️ dan GitHub Pages.
   </footer>
-
   <script>
     function toggleMenu() {
       const nav = document.getElementById('nav-menu');
-      nav.classList.toggle('show');
+      nav.classList.toggle('hidden');
     }
   </script>
 </body>
