@@ -62,18 +62,18 @@
     }
 
     .logo img {
-      height: 40px;
+      height: 36px;
     }
 
     .logo h1 {
       margin: 0;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     nav {
       position: fixed;
       top: 0;
-      left: -250px;
+      left: -300px;
       height: 100vh;
       width: 250px;
       background-color: var(--accent-color);
@@ -83,10 +83,12 @@
       gap: 1rem;
       padding-left: 1.5rem;
       transition: left 0.3s ease-in-out;
+      visibility: hidden;
     }
 
     nav.show {
       left: 0;
+      visibility: visible;
     }
 
     nav a {
@@ -109,6 +111,7 @@
         gap: 1.5rem;
         align-items: center;
         width: auto;
+        visibility: visible;
       }
 
       nav a {
@@ -122,6 +125,10 @@
 
     main {
       padding: 2rem 1rem;
+    }
+
+    main h2 {
+      text-align: center;
     }
 
     .book-grid {
@@ -158,6 +165,10 @@
       border-radius: 5px;
     }
 
+    #tentang h2 {
+      text-align: center;
+    }
+
     footer {
       text-align: center;
       padding: 1rem;
@@ -174,7 +185,7 @@
         <div class="menu-left">
           <button class="menu-toggle" onclick="toggleMenu()" id="burger">☰</button>
           <div class="logo">
-            <img src="assets/logo.png" alt="Logo ITERA">
+            <img src="assets/LogoITERA.png" alt="Logo ITERA">
             <h1>ITERA Bermatika</h1>
           </div>
         </div>
@@ -234,12 +245,12 @@
 
     <section id="tentang" style="margin-top:3rem;">
       <h2>Tentang ITERA Bermatika</h2>
-      <p>Inisiatif kolaboratif dari dosen dan mahasiswa Matematika ITERA untuk mengembangkan dan menyebarkan buku-buku terbuka berkualitas.</p>
+      <p style="text-align:center;">Inisiatif kolaboratif dari dosen dan mahasiswa Matematika ITERA untuk mengembangkan dan menyebarkan buku-buku terbuka berkualitas.</p>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 ITERA Bermatika
+    &copy; 2025 ITERA Bermatika. Dibuat dengan ❤️ dan GitHub Pages.
   </footer>
 
   <script>
