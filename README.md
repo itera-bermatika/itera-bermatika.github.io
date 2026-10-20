@@ -6,6 +6,7 @@ https://itera-bermatika.github.io/
 ## Bahan yang tersedia
 
 - [Fondasi Matematika — bacaan prekalkulus interaktif](https://itera-bermatika.github.io/fondasi-matematika/)
+- [Buku Prekalkulus — PDF draf pengembangan, Tri Utomo](https://itera-bermatika.github.io/prekalkulus-output/prekalkulus.pdf)
 - [Buku Kalkulus — PDF](https://itera-bermatika.github.io/kalkulus-output/main.pdf)
 
 Sumber bacaan interaktif dikelola terpisah di
